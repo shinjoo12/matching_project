@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NoticeDetail</title>
+</head>
+<body>
+<div class="board_entry">
+  <span th:text="${noticeTitle}">Notice title</span>
+  <span th:text="${noticeContent}">Notice content</span>
+  <br/>
+  <a th:href="@{'/noticeList/editpost/' +${id}}">MODIFY</a>
+  <a th:href="@{'/noticeList/deletepost/' +${id}}">DELETE</a>
+</div>
+<a th:href="@{/noticeList}">Back to list</a>
+</div>
+
+</body>
+</html>
