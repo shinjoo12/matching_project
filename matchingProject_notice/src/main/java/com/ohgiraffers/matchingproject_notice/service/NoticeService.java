@@ -37,6 +37,10 @@ public class NoticeService {
 
                 return result != null ? 1 : 0;
             }
+
+
+
+
         }
 
 
