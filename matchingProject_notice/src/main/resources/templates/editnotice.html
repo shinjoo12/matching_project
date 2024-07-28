@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>edit</title>
+</head>
+<body>
+<form th:action="@{'/editnotice/'+${noticeDTO.id}}" method="post">
+    <!-- 수정할 게시글 제목 입력 폼 -->
+    <input type="text" th:value="${noticeDTO.noticeTitle}" name="noticeTitle" placeholder="게시글 제목">
+
+    <!-- 수정할 게시글 내용 입력 폼 -->
+    <textarea name="noticeContent" th:text="${noticeDTO.noticeContent}" placeholder="게시글 내용">
+    </textarea>
+
+    <!-- 저장 버튼 -->
+    <button type="submit">저장</button>
+</form>
+<!--<form th:action="@{'/editnotice/' + ${noticeDTO.id}}" method="post">-->
+<!--    &lt;!&ndash; 수정할 게시글 제목 입력 폼 &ndash;&gt;-->
+<!--    <input type="text" th:value="${noticeDTO.noticeTitle}" name="noticeTitle" placeholder="게시글 제목">-->
+
+<!--    &lt;!&ndash; 수정할 게시글 내용 입력 폼 &ndash;&gt;-->
+<!--    <textarea name="noticeContent" th:text="${noticeDTO.noticeContent}" placeholder="게시글 내용">-->
+<!--    </textarea>-->
+
+<!--    &lt;!&ndash; 저장 버튼 &ndash;&gt;-->
+<!--    <button type="submit">저장</button>-->
+<!--</form>-->
+<!-- 목록으로 돌아가는 링크 -->
+<a href="/noticeList1">목록으로 돌아가기</a>
+
+</form>
+</body>
+</html>

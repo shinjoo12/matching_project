@@ -3,6 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <title>NoticeList</title>
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            background-color: #f4f4f4;-->
+<!--            margin: 0;-->
+<!--            padding: 0;-->
+<!--        }-->
+<!--        .container {-->
+<!--            max-width: 800px;-->
+<!--            margin: auto;-->
+<!--            background: #fff;-->
+<!--            padding: 20px;-->
+<!--            border-radius: 8px;-->
+<!--            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);-->
+<!--        }-->
+<!--        header {-->
+<!--            background-color: #333;-->
+<!--            color: #fff;-->
+<!--            padding: 10px 0;-->
+<!--            text-align: center;-->
+<!--        }-->
+<!--        header nav {-->
+<!--            display: flex;-->
+<!--            justify-content: center;-->
+<!--        }-->
+<!--        header nav a {-->
+<!--            color: #fff;-->
+<!--            text-decoration: none;-->
+<!--            margin: 0 15px;-->
+<!--            font-size: 16px;-->
+<!--        }-->
+<!--        h1 {-->
+
+<!--            text-align: center;-->
+<!--            color: #090909;-->
+<!--        }-->
+<!--        table {-->
+<!--            width: 100%;-->
+<!--            border-collapse: collapse;-->
+<!--            margin-top: 20px;-->
+<!--        }-->
+<!--        th, td {-->
+<!--            padding: 12px 15px;-->
+<!--            text-align: left;-->
+<!--            border-bottom: 1px solid #ddd;-->
+<!--        }-->
+<!--        th {-->
+<!--            background-color: #f2f2f2;-->
+<!--            color: #333;-->
+<!--            font-weight: normal;-->
+<!--        }-->
+<!--        td {-->
+<!--            color: #666;-->
+<!--        }-->
+<!--        tr:hover {-->
+<!--            background-color: #f5f5f5;-->
+<!--        }-->
+<!--        footer {-->
+<!--            text-align: center;-->
+<!--            margin-top: 20px;-->
+<!--            padding: 10px 0;-->
+<!--            background-color: #333;-->
+<!--            color: #fff;-->
+<!--            position: fixed;-->
+<!--            bottom: 0;-->
+<!--            width: 100%;-->
+<!--        }-->
+<!--    </style>-->
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -35,7 +104,6 @@
             font-size: 16px;
         }
         h1 {
-
             text-align: center;
             color: #090909;
         }
@@ -82,18 +150,27 @@
 </header>
 <div class="container">
     <h1>공지사항</h1>
-    <a th:href="@{/noticeRegister}" class="noticeWrite">공지글 작성</a>
+<!--    <a th:href="@{/noticeRegister}" class="noticeWrite">공지글 작성</a>-->
     <table>
-        <thead>
-        <tr>
-            <th>No</th>
-            <th>제목</th>
-            <th>작성자</th>
-            <th>작성일자</th>
-            <th>관리</th>
+<!--        <thead>-->
+<!--        <tr>-->
+<!--            <th>No</th>-->
+<!--            <th>제목</th>-->
+<!--            <th>작성자</th>-->
+<!--            <th>작성일자</th>-->
+<!--            <th>관리</th>-->
+<!--        </tr>-->
+        <tr th:each="notice : ${notices}">
+            <td th:text="${notice.noticeTitle}">Notice Title</td>
+            <td th:text="${notice.noticeContent}">Notice Content</td>
+            <td th:text="${notice.createDate}">Notice Date</td>
+            <td>
+                <a th:href="@{'/noticeList1/noticeDetail/' + ${notice.id}}">DETAIL</a>
+            </td>
         </tr>
-
     </table>
+    <a th:href="@{/noticeRegister}">Register New Notice</a>
+<!--    </table>-->
 </div>
 </body>
 </html>
